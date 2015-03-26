@@ -12,7 +12,8 @@ class FootballPlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    render json: player_hash(@player, Player.apad(@player.position, "football"))
+    apad = instance_variable_get("@#{@player.position.downcase}") || ""
+    render json: player_hash(@player, apad)
   end
 
   private
