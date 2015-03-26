@@ -1,38 +1,38 @@
-# CBS Sports API
+== CBS Sports API
 
-## Updating database
+== Updating database
 
 Before accessing the data in the API endpoints you must update the database for each sport by visting the update endpoints.
 
-###### Basketball
+== Basketball
 root_path/update_players/basketball
 Ex: https://cbs-sports-api.herokuapp.com/update_players/basketball
 
-###### Baseball
+== Baseball
 root_path/update_players/baseball
 Ex: https://cbs-sports-api.herokuapp.com/update_players/baseball
 
-###### Football
+== Football
 root_path/update_players/football
 Ex: https://cbs-sports-api.herokuapp.com/update_players/football
 
 You will see a confirmation message after the app has successfully persisted player records for its respective sport.
 
-## Viewing API Endpoints
+== Viewing API Endpoints
 
-###### Basketball
+== Basketball
 index view all players: root_path/api/basketball_players
 Ex: https://cbs-sports-api.herokuapp.com/api/basketball_players
 show view of a specific player: root_path/api/basketball_players/:id
 Ex: https://cbs-sports-api.herokuapp.com/api/basketball_players/:id
 
-###### Baseball
+== Baseball
 index view all players: root_path/api/baseball_players
 Ex: https://cbs-sports-api.herokuapp.com/api/baseball_players
 show view of a specific player: root_path/api/baseball_players/:id
 Ex: https://cbs-sports-api.herokuapp.com/api/baseball_players/:id
 
-###### Football
+== Football
 index view all players: root_path/api/football_players
 Ex: https://cbs-sports-api.herokuapp.com/api/football_players
 show view of a specific player: root_path/api/football_players/:id
