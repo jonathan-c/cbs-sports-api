@@ -6,6 +6,7 @@ gem 'pg'
 
 group :development do
   gem 'debugger'
+  gem 'pry'
 end
 
 group :assets do
