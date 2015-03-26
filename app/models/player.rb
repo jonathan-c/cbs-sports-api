@@ -5,11 +5,11 @@ class Player < ActiveRecord::Base
     if !first_name.blank? && !last_name.blank?
       case self.sport
       when "basketball"
-        first_name+" "+last_name[0]+"."
+        "#{first_name} #{last_name[0]}."
       when "baseball"
-        first_name[0]+". "+last_name[0]+"."
+        "#{first_name[0]}. #{last_name[0]}."
       when "football"
-        first_name[0]+". "+last_name
+        "#{first_name[0]}. #{last_name}"
       else
         ""
       end
