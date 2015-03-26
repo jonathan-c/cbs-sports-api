@@ -26,7 +26,7 @@ class FootballPlayersController < ApplicationController
     def load_apad
       @qb ||= Player.apad("QB", "football")
       @wr ||= Player.apad("WR", "football")
-      @rb ||= Player.apad("RB", "baseball")
+      @rb ||= Player.apad("RB", "football")
       @te ||= Player.apad("TE", "football")
       @k ||= Player.apad("K", "football")
       @st ||= Player.apad("ST", "football")
