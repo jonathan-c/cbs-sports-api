@@ -21,6 +21,8 @@ class FootballPlayersController < ApplicationController
 
   private
 
+    # Save the average_position_age_diff for each position
+    # This allows us to only make the query once
     def load_apad
       @qb ||= Player.apad("QB", "football")
       @wr ||= Player.apad("WR", "football")
@@ -33,6 +35,7 @@ class FootballPlayersController < ApplicationController
       @db ||= Player.apad("DB", "football")
     end
 
+    # Allows the controller to dynamically find the average_position_age_diff
     def return_football_apad(player)
       case player.position
       when "QB"

@@ -1,7 +1,7 @@
 require 'open-uri'
 
 module UpdatePlayersHelper
-
+  # Import players into db
   def update_players(sport)
     url = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=#{sport}&response_format=JSON"
     buffer = open(url).read
