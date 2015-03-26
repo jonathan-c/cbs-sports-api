@@ -1,8 +1,8 @@
-class BasketballPlayersController < ApplicationController
+class FootballPlayersController < ApplicationController
   include ApiHelper
 
   def index
-    @players = Player.where(sport: "basketball")
+    @players = Player.where(sport: "football")
     render json: @players.map { |player| player_hash(player) }
   end
 
