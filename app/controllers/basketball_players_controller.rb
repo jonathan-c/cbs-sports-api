@@ -1,14 +1,51 @@
 class BasketballPlayersController < ApplicationController
   include ApiHelper
+  before_filter :load_apad
 
   def index
     @players = Player.where(sport: "basketball")
-    render json: @players.map { |player| player_hash(player) }
+    render json: @players.map { |player|
+      apad = return_basketball_apad(player)
+      if apad
+        player_hash(player, apad)
+      else
+        player_hash(player, player.average_position_age_diff)
+      end
+    }
   end
 
   def show
     @player = Player.find(params[:id])
-    render json: player_hash(@player)
+    render json: player_hash(@player, @player.average_position_age_diff)
+  end
+
+  def load_apad
+    @sf ||= Player.apad("SF", "basketball")
+    @sg ||= Player.apad("SG", "basketball")
+    @c ||= Player.apad("C", "basketball")
+    @pg ||= Player.apad("PG", "basketball")
+    @pf ||= Player.apad("PF", "basketball")
+    @g ||= Player.apad("G", "basketball")
+    @f ||= Player.apad("F", "basketball")
+  end
+
+  def return_basketball_apad(player)
+    case player.position
+    when "SF"
+      apad = @sf
+    when "SG"
+      apad = @sg
+    when "C"
+      apad = @c
+    when "PG"
+      apad = @pg
+    when "PF"
+      apad = @pf
+    when "G"
+      apad = @g
+    when "F"
+      apad = @f
+    end
   end
 
 end

@@ -25,4 +25,10 @@ class Player < ActiveRecord::Base
     (ages.sum.to_f / ages.length).to_s
   end
 
+  def self.apad(position, sport)
+    players = Player.where('age > 0').where('age < 100').where(sport: sport, position: position)
+    ages = players.map{|player| player.age}
+    (ages.sum.to_f / ages.length).to_s
+  end
+
 end
