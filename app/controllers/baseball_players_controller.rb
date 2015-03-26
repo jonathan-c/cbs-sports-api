@@ -9,14 +9,14 @@ class BaseballPlayersController < ApplicationController
       if apad
         player_hash(player, apad)
       else
-        player_hash(player, player.average_position_age_diff)
+        player_hash(player, Player.apad(player.position, "baseball"))
       end
     }
   end
 
   def show
     @player = Player.find(params[:id])
-    render json: player_hash(@player, @player.average_position_age_diff)
+    render json: player_hash(@player, Player.apad(@player.position, "baseball"))
   end
 
   private

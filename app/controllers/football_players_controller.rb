@@ -6,17 +6,13 @@ class FootballPlayersController < ApplicationController
     @players = Player.where(sport: "football")
     render json: @players.map { |player|
       apad = return_football_apad(player)
-      if apad
-        player_hash(player, apad)
-      else
-        player_hash(player, player.average_position_age_diff)
-      end
+      player_hash(player, apad)
     }
   end
 
   def show
     @player = Player.find(params[:id])
-    render json: player_hash(@player, @player.average_position_age_diff)
+    render json: player_hash(@player, Player.apad(@player.position, "football"))
   end
 
   private
